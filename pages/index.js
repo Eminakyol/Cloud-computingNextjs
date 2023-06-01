@@ -13,7 +13,6 @@ export default function Home() {
   const geAllCategory = async () => {
     const res = await fetch("http://16.171.10.65:3001/");
     const data = await res.json();
-    console.log(data);
     setCategory(data.data);
   };
 
@@ -24,8 +23,8 @@ export default function Home() {
     <Box textAlign={"center"} px={12} py={2}>
       <h1>Category</h1>
       <Grid container spacing={2}>
-        {category.map((item) => (
-          <Grid item xs={6} sm={4} md={6}>
+        {category.map((item, index) => (
+          <Grid key={index} item xs={6} sm={4} md={6}>
             <Link href={`/category/${item?.id}`}>
               <Box
                 sx={{
