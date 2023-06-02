@@ -9,10 +9,13 @@ const CategoryItem = ({ basket, setBasket }) => {
   const [categoryItem, setCategoryItem] = useState({});
   const { id } = router.query;
   const getByCategoryId = async () => {
-    const res = await fetch("http://16.171.10.65:3001/categories/" + id);
+    const res = await fetch(
+      '${process.env.NEXT_PUBLIC_API_URL}/categories/' + id
+    );
     const data = await res.json();
     setCategoryItem(data.data);
   };
+  console.log(process.env.NEXT_PUBLIC_API_URL);
   useEffect(() => {
     if (id) getByCategoryId();
   }, [id]);

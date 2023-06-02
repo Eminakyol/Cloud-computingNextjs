@@ -41,7 +41,7 @@ const Order = ({ basket, setBasket }) => {
     };
 
     // İstek gönderme işlemini burada gerçekleştirin
-    fetch("http://16.171.10.65:3001/order", {
+    fetch('${process.env.NEXT_PUBLIC_API_URL}/order', {
       method: "POST",
       body: JSON.stringify({ order: orderData }),
       headers: {
