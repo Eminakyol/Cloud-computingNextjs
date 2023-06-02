@@ -10,7 +10,7 @@ const CategoryItem = ({ basket, setBasket }) => {
   const { id } = router.query;
   const getByCategoryId = async () => {
     const res = await fetch(
-      '${process.env.NEXT_PUBLIC_API_URL}/categories/' + id
+      `${process.env.NEXT_PUBLIC_API_URL}/categories/` + id
     );
     const data = await res.json();
     setCategoryItem(data.data);
